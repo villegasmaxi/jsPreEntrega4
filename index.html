@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A la romana Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <div id="presentacion" class="container d-flex justify-content-center align-items-center">
+          <a class="btn btn-info btn-lg fs-1 border border-dark" href="#title" role="button">comencemos</a>
+        </div>
+      </header>
+      <main>
+        <section>
+
+         <!-- carrito -->
+      <div class="d-flex">
+        <div class="title container mt-5 mb-4 ">
+          <h1 id="title" class="display-5">Comprá para llevar desde aquí</h1>
+        </div>
+
+        <div id="verCarrito" class="title display-2 mt-5 mb-4 ms-1">🛒</div>
+      </div>
+
+      <!-- modal con resultado del carrito -->
+      <div id="modalContainer" class="modalContainer container bg-warning mt-5 "></div>
+      
+     
+        
+      <!-- cards del carrito     -->
+      <div class="d-flex row" id="shop"></div>
+
+      
+    </section>
+
+    <section>
+      <!-- calculadora romana -->
+        <div class="title container mt-5 mb-5">
+          <h1 id="title" class="display-5">A la Romana calculator</h1>
+        </div>
+
+      <div class="container border border-3 border-dark rounded p-3">
+        <form class="row" id="usuarioForm">
+          <div class="col-md-12">
+            <label class="form-label fs-5" for="nombreInput">Nombre:</label>
+            <input
+              class="form-control border border-4 border-info"
+              type="text"
+              id="nombreInput"
+              required
+            />
+          </div>
+
+          <div class="col-md-12">
+            <label class="form-label fs-5" for="edadInput">Edad:</label>
+            <input
+              class="form-control border border-4 border-info"
+              type="number"
+              id="edadInput"
+              required
+            />
+          </div>
+
+          <div class="col-md-12">
+            <label class="form-label fs-5" for="inputGroupSelect01"
+              >Método de pago</label
+            >
+            <select
+              class="form-select border border-4 border-info"
+              id="inputGroupSelect01"
+              required
+            >
+              <option selected>Seleccionar...</option>
+              <option value="tarjeta">Tarjeta</option>
+              <option value="efectivo">Efectivo</option>
+            </select>
+          </div>
+
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary mt-3">
+              Agregar Usuario
+            </button>
+          </div>
+        </form>
+
+        <div class="d-flex mt-5 fs-5">
+        <label class="me-3">Ingresa costo de la cena $ </label>
+        <input class="border border-4 border-info" type="text" id="costoCenaInput">
+        </div>
+
+
+        <input type="number" id="comenzalInput" placeholder="Ingrese su contribución">
+
+
+     
+  
+
+        <section>
+          <div class="container mt-5 border border-dark ">
+            <ul class="d-flex justify-content-around list-unstyled">
+              <li>
+                <button id="btnCena" class="rounded cena bg-warning mt-3">calcular cena aporte</button>
+              </li>
+              
+              <li>
+                <button id="btnEquitativa" class="rounded cena bg-warning mt-3">
+                  calcular cena equitativo
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-5 p-2 border border-3 border-info" id="resumenMetodosPago"></div>
+        </section>
+        
+      </div>
+    </section>
+    
+    </main>
+
+
+
+
+
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="sweetalert2.all.min.js"></script>
+
+    <script src="main.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,17 @@
+
+.title{text-align: center; border: 2px solid black;margin-top: 1em;}
+h1{margin: 5px auto; color:black; font-weight: 800;}
+
+#presentacion{
+    background-image: url(../images/DreamShaper_v5_disfrutar_de_su_cena_vista_superior_de_alimento_1.jpg);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+ .deleteProduct {
+    cursor: pointer;
+ }
+ .modalHeaderButton{
+    cursor: pointer;
+ }
+ 
