@@ -1,0 +1,67 @@
+[
+{
+    "id": 1,
+    "nombre": "entrada",
+    "descripcion": "podes ver las opciones en nuestra carta",
+    "precio": 900 ,
+    "img":"./images/entrada.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 2,
+    "nombre": "plato del dia",
+    "descripcion": "podes ver las opciones en nuestra carta",
+    "precio": 1500,
+    "img":"./images/plato-del-dia.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 3,
+    "nombre": "postre",
+    "descripcion": "podes ver las opciones en nuestra carta",
+    "precio": 500,
+    "img":"./images/volcan-de-chocolate.jpg",
+    "cantidad": 1
+  },
+ 
+  {
+    "id": 4,
+    "nombre": "cafe",
+    "descripcion": "podes ver las opciones en nuestra carta",
+    "precio": 300,
+    "img":"./images/cafe.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 5,
+    "nombre": "picada x 4",
+    "descripcion": "podes ver las opciones en nuestra carta",
+    "precio": 1500,
+    "img":"./images/picada.jpg",
+    "cantidad": 1
+  },
+  {
+    "id": 6,
+    "nombre": "pastas",
+    "descripcion": "podes ver las opciones en nuestra carta",
+    "precio": 900,
+    "img":"./images/pastas.jpeg",
+    "cantidad": 1
+  },
+  {
+    "id": 7,
+    "nombre": "parrillada x 4",
+    "descripcion": "podes ver las opciones en nuestra carta",
+    "precio": 2300,
+    "img":"./images/parrillada.jpeg",
+    "cantidad": 1
+  },
+  {
+    "id": 8,
+    "nombre": "sushi x 40 pcs",
+    "descripcion": "podes ver las opciones en nuestra carta",
+    "precio": 1800,
+    "img":"./images/sushi.jpg",
+    "cantidad": 1
+  }
+  ]
