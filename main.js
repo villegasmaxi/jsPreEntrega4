@@ -17,9 +17,9 @@ fetch("https://api.nasa.gov/planetary/apod?api_key=LDoReeXa9lCBruFtoek2eiKhomklH
  spaceInfo.className = "container border border-3 mt-5 "
   spaceInfo.innerHTML = `
   <h3 class=" p-5 mt-5 border border-3 bg-secondary text-white">Mientras preparamos tu pedido mirá estos datos del espacio...</h3>
-  <h4>${data.title}</h4>
-  <img src =${data.url}></img>
-  <h4>${data.copyright}</h4>
+  <h4 class="">${data.title}</h4>
+  <img  class="img-fluid" src =${data.url}></img>
+  <p>${data.explanation}</p>
   `;
 
   imageMars.append(spaceInfo);
@@ -81,7 +81,7 @@ let costoTotal;
   modalContainer.innerHTML = "";
   //para que muestre el modal porque al cerrarlo queda en display none
   modalContainer.style.display = "block";
-  //aca arranca a crear el carrito esto es el header
+  //crear el carrito esto es el header
   let modalHeader = document.createElement("div");
 
   modalHeader.className = "modal-Header d-flex  border border-3 border-dark";
@@ -90,7 +90,7 @@ let costoTotal;
   ;
   modalContainer.append(modalHeader);
 
-//aca creo el boton para cerrar el carrito con una x
+//boton para cerrar el carrito con una x
   let modalButton = document.createElement("h1");
 
   modalButton.innerText = "X";
@@ -122,7 +122,7 @@ carritoContent.append(eliminar);
 eliminar.addEventListener("click", () => {eliminarProducto(`${producto.id}`)});
 });
 
-//aca sumo el total del carrito con un reduce y muestro el total 
+//suma total del carrito 
 costoTotal = carrito.reduce((acc,item) => acc + item.precio, 0);
 
 let totalComprado = document.createElement("div")
@@ -204,6 +204,8 @@ function sacarMenores() {
     menoresRemovidos = true;
   }
 }
+  
+
 
 
 let costoCena;
@@ -219,11 +221,20 @@ function corre() {
     return;
    }
 
-  //este for es para mostrar el nombre de quienes pusieron dinero al final de la romana
+  //este for es para mostrar el nombre de mayores que participan en la romana
   let usuariosInfo = "";
   for (let i = 0; i < resultadoMayores.length; i++) {
-    usuariosInfo += "\n" + resultadoMayores[i].nombre + "\n";
+    usuariosInfo += resultadoMayores[i].nombre + "<br>";
   }
+
+  let userList = document.getElementById("listUser");
+userListContent= document.createElement("div");
+userListContent.className="container"
+userListContent.innerHTML= `
+<p> ${usuariosInfo} </p>
+` 
+userList.append(userListContent);
+
   
 
   function calculoRomana(resultadoMayores, costoCena) {
