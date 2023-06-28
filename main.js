@@ -1,13 +1,11 @@
 
-//carrito de compras
 
 
 
+//receta random
 const imageMars = document.getElementById("foto");
 
-fetch("https://api.nasa.gov/planetary/apod?api_key=LDoReeXa9lCBruFtoek2eiKhomklHztEKhFO24uF")
-
-//fetch("http://www.themealdb.com/api/json/v1/1/random.php")
+fetch("http://www.themealdb.com/api/json/v1/1/random.php")
 
 .then((respuesta) => respuesta.json())
 .then((data) => {
@@ -16,16 +14,16 @@ fetch("https://api.nasa.gov/planetary/apod?api_key=LDoReeXa9lCBruFtoek2eiKhomklH
   const spaceInfo = document.createElement("div");
  spaceInfo.className = "container border border-3 mt-5 "
   spaceInfo.innerHTML = `
-  <h3 class=" p-5 mt-5 border border-3 bg-secondary text-white">Mientras preparamos tu pedido mirá estos datos del espacio...</h3>
-  <h4 class="">${data.title}</h4>
-  <img  class="img-fluid" src =${data.url}></img>
-  <p>${data.explanation}</p>
+  <h3 class=" p-4 mt-5 border border-3 bg-info text-secondary">Mientras preparamos tu pedido te damos una receta para preparar en casa </h3>
+  <h3 class="m-3 text-center">${data.meals[0].strMeal}</h3>
+  <img  class="img-fluid rounded mx-auto d-block" src =${data.meals[0].strMealThumb}></img>
+  <p class="container ">${data.meals[0].strInstructions}</p>
   `;
 
   imageMars.append(spaceInfo);
 });
 
-
+//carta de delivery
 const shop = document.getElementById("shop"); 
 const verCarrito = document.getElementById("verCarrito");
 const modalContainer = document.getElementById("modalContainer");
@@ -74,7 +72,6 @@ getProducts();
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 //aca hago la lista de productos con los datos y el boton para comprar
-
 let costoTotal;
  const pintarCarrito = () => {
   //para que arranque el carrito vacio 
@@ -83,8 +80,7 @@ let costoTotal;
   modalContainer.style.display = "block";
   //crear el carrito esto es el header
   let modalHeader = document.createElement("div");
-
-  modalHeader.className = "modal-Header d-flex  border border-3 border-dark";
+  modalHeader.className = "modal-Header d-flex  border border-1 border-dark bg-info";
   modalHeader.innerHTML = `
   <h1 class= "modalHeaderTitle">Carrito</h1> `
   ;
@@ -94,7 +90,7 @@ let costoTotal;
   let modalButton = document.createElement("h1");
 
   modalButton.innerText = "X";
-  modalButton.className = "modalHeaderButton";
+  modalButton.className = "modalHeaderButton text-danger";
    
   modalButton.addEventListener("click", () =>{
     modalContainer.style.display = "none";
@@ -128,7 +124,7 @@ costoTotal = carrito.reduce((acc,item) => acc + item.precio, 0);
 let totalComprado = document.createElement("div")
 totalComprado.className = "totalContent d-flex justify-content-end"
 totalComprado.innerHTML = `
-<h3 class="fs-1 p-3 border border-3 border-dark rounded-2 me-4"> Total a pagar $ ${costoTotal} </h3>`;
+<h3 class="fs-1 p-3 border border-3 border-dark rounded-2 me-4 bg-warning"> Total a pagar $ ${costoTotal} </h3>`;
 modalContainer.append(totalComprado);
 
 
@@ -212,9 +208,7 @@ let costoCena;
 function corre() {
   sacarMenores();
 
-  //  valor del input de costoCena
-  const costoCenaInput = document.getElementById('costoCenaInput');
-  costoCena = parseFloat(costoCenaInput.value);
+  costoCena = parseFloat(costoTotal);
 
    if (isNaN(costoCena)) {
     Swal.fire('Por favor, ingresa un número válido.');
@@ -224,15 +218,15 @@ function corre() {
   //este for es para mostrar el nombre de mayores que participan en la romana
   let usuariosInfo = "";
   for (let i = 0; i < resultadoMayores.length; i++) {
-    usuariosInfo += resultadoMayores[i].nombre + "<br>";
+    usuariosInfo = `<br> ${usuariosInfo} ${resultadoMayores[i].nombre} <br>`;
   }
 
   let userList = document.getElementById("listUser");
 userListContent= document.createElement("div");
-userListContent.className="container"
+userListContent.className="container";
 userListContent.innerHTML= `
-<p> ${usuariosInfo} </p>
-` 
+<h5> ${usuariosInfo} </h5>
+`;
 userList.append(userListContent);
 
   
@@ -245,72 +239,37 @@ userList.append(userListContent);
       let comenzal="";
       for (let i = 0; i < resultadoMayores.length; i++) {
         const dineroFaltante = costoCena - montoRonda;
-
-        
-        let inputComenzal = document.getElementById("comenzalInput");
-        let inputComenzalContent = document.createElement("div");
-        inputComenzalContent.className =" d-flex flex-column";
-        inputComenzalContent.innerHTML = `
-        <p> Hola ${resultadoMayores[i].nombre} la cena costó ${parseInt(costoCena)} y falta poner ${dineroFaltante} entre ${
-          resultadoMayores.length - i}</p>
-          <h6> "cuanto podes poner vos?"</h6>
-          <label class="fs-5" >Monto:</label>
-            <input
-              class="border border-4 border-info"
-              type="number"
-              id="cadaUnoPone"
-            />
-            <button id="comenzalButton" >"puedo poner esto"</button>
-        `;
-        inputComenzal.append(inputComenzalContent);
-        
-        let comenzalButton = document.getElementById("comenzalButton");
-
- comenzalButton.addEventListener("click", () => {
-   comenzal = comenzal + cadaUnoPone.value;
-
+        comenzal = prompt(`Hola ${resultadoMayores[i].nombre} la cena costó ${parseInt(costoCena)} y falta poner ${dineroFaltante} entre ${resultadoMayores.length - i} Cuanto podés poner vos?`);
 
   if (isNaN(comenzal) || comenzal === "") {
     alert("No es un número válido.");
     i--;
+    continue;
     }
-});
-
-
-        
-
-      
-
-
-        /* const comenzal = prompt(`Hola ${resultadoMayores[i].nombre} la cena costó ${parseInt(costoCena)} y falta poner {dineroFaltante} entre ${resultadoMayores.length - i} Cuanto podés poner vos?`);*/
 
         //se agrega la participacion de dinero de cada comenzal al array resultadoMayores
         let aporteComenzal = parseInt(comenzal);
         resultadoMayores[i].comenzal = aporteComenzal;
 
         montoRonda = montoRonda + parseInt(comenzal);
-
-        //console.log(" montoRecaudado: ", montoRonda);
-      
-      // Si no alcanza alert "No llegamos a cubrir el costo: Vamos de nuevo." Y vuelvo a preguntar a todos cuanto quieren poner.
+      } 
+      // Si no alcanza alert Y vuelvo a preguntar a todos cuanto quieren poner.
       if (montoRonda < costoCena) {
         alert("No llegamos a cubrir el costo: Vamos de nuevo.");
        }
       return montoRonda;
     }
-    }
+    
 
     while (montoRecaudado < costoCena) {
       montoRecaudado = rondaDeDinero(resultadoMayores, costoCena);
-      //console.log(" Total recaudado en la romana: ", montoRecaudado);
     }
-    // Si al final de la vuelta alcanza, mando alerta "A comer" y con lo que sobra agrego "Quedo X para propina."
+    // Si al final de la vuelta alcanza, mando alerta y con lo que sobra agrego "Quedo X para propina."
     let propina = montoRecaudado - costoCena; 
 
     let resumenMetodosPago = "Resumen de métodos de pago:<br>";
     
     for (let i = 0; i < resultadoMayores.length; i++) {
-
       resumenMetodosPago += resultadoMayores[i].nombre + " pagó $ " + resultadoMayores[i].comenzal + " con " + resultadoMayores[i].metodoPago + "<br>";
     }
   // Mostrar resumen de métodos de pago

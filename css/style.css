@@ -8,9 +8,7 @@ h1{margin: 5px auto; color:black; font-weight: 800;}
     background-repeat: no-repeat;
     background-size: cover;
  }
- .deleteProduct {
-    cursor: pointer;
+ .deleteProduct {cursor: pointer;
  }
- .modalHeaderButton{
-    cursor: pointer;
+ .modalHeaderButton{cursor: pointer;
  }

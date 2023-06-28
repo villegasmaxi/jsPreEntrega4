@@ -6,14 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A la romana Calculator</title>
 
-    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
 
-
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -25,130 +23,147 @@
   </head>
 
   <body>
-   
     <div class="container">
-
-      
-
       <header>
-        <div id="presentacion" class="container d-flex flex-column justify-content-center align-items-center">
-          <h2 class="mb-5 fs-1 text-light">A la romana es mejor!!!</h2>
-          <a class="btn btn-info btn-lg fs-1 border border-dark" href="#title" role="button">comencemos</a>
+        <div
+          id="presentacion"
+          class="container d-flex flex-column justify-content-center align-items-center"
+        >
+          <h2 class="mb-5 fs-1 text-light fw-bold">A la romana es mejor!!!</h2>
+          <a
+            class="btn btn-info btn-lg fs-1 border border-dark"
+            href="#title"
+            role="button"
+            >comencemos</a
+          >
         </div>
       </header>
-      <main>
+      <main class="container bg-light">
         <section>
-
-         <!-- carrito -->
-      <div class="d-flex">
-        <div class="title container mt-5 mb-4 ">
-          <h1 id="title" class="display-5">Comprá para llevar desde aquí</h1>
-        </div>
-
-        <div id="verCarrito" class="title display-2 mt-5 mb-4 ms-1">🛒</div>
-      </div>
-
-      <!-- modal con resultado del carrito -->
-      <div id="modalContainer" class="modalContainer container bg-warning mt-5 "></div>
-      
-     
-        
-      <!-- cards del carrito     -->
-      <div class="d-flex row" id="shop"></div>
-
-      
-    </section>
-
-    <section>
-      <!-- calculadora romana -->
-        <div class="title container mt-5 mb-5">
-          <h1 id="title" class="display-5">A la Romana calculator</h1>
-        </div>
-
-      <div class="container border border-3 border-dark rounded p-3">
-        <form class="row" id="usuarioForm">
-          <div class="col-md-12">
-            <label class="form-label fs-5" for="nombreInput">Nombre:</label>
-            <input
-              class="form-control border border-4 border-info"
-              type="text"
-              id="nombreInput"
-              required
-            />
-          </div>
-
-          <div class="col-md-12">
-            <label class="form-label fs-5" for="edadInput">Edad:</label>
-            <input
-              class="form-control border border-4 border-info"
-              type="number"
-              id="edadInput"
-              required
-            />
-          </div>
-
-          <div class="col-md-12">
-            <label class="form-label fs-5" for="inputGroupSelect01"
-              >Método de pago</label
+          <!-- carrito -->
+          <div class="d-flex">
+            <div
+              class="title container mt-5 mb-4 bg-info rounded border border-secondary"
             >
-            <select
-              class="form-select border border-4 border-info"
-              id="inputGroupSelect01"
-              required
+              <h1 id="title" class="display-6 fw-bold text-secondary mt-3">
+                Comprá para llevar desde aquí
+              </h1>
+            </div>
+
+            <div
+              id="verCarrito"
+              class="title display-4 mt-5 mb-4 ms-1 bg-info border border-secondary rounded"
             >
-              <option selected>Seleccionar...</option>
-              <option value="tarjeta">Tarjeta</option>
-              <option value="efectivo">Efectivo</option>
-            </select>
+              <p>🛒</p>
+            </div>
           </div>
 
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-primary mt-3">
-              Agregar Usuario
-            </button>
-          </div>
-        </form>
+          <!-- modal con resultado del carrito -->
+          <div
+            id="modalContainer"
+            class="modalContainer container bg-secondary mt-5 p-2"
+          ></div>
 
-        <div id="listUser" class="mt-5 fs-5">lista de usuarios mayores de 13 que participan en la romana: </div>
-
-        <div class="d-flex mt-5 fs-5">
-        <label class="me-3">Ingresa costo total de la cena $ </label>
-        <input class="border border-4 border-info" type="number" id="costoCenaInput" required>
-        </div>
-
-      
-        <div  class="mt-5 p-2 border border-3 border-info" id="comenzalInput"></div>
-
-
-     
-  
-
-        <section>
-          <div class="container mt-5">
-            <ul class="d-flex justify-content-around list-unstyled">
-              <li>
-                <button id="btnCena" class="rounded cena bg-warning mt-3">calcular cena aporte</button>
-              </li>
-              
-              <li>
-                <button id="btnEquitativa" class="rounded cena bg-warning mt-3">
-                  calcular cena equitativo
-                </button>
-              </li>
-            </ul>
-          </div>
-          <div class="mt-5 p-2 border border-3 border-info" id="resumenMetodosPago"></div>
+          <!-- cards del carrito     -->
+          <div class="d-flex row" id="shop"></div>
         </section>
-        
-      </div>
-    </section>
-    
-    </main>
 
+        <section>
+          <!-- calculadora romana -->
+          <div
+            class="title container mt-5 mb-5 bg-info border border-secondary rounded"
+          >
+            <h1 id="title" class="display-7 fw-bold text-secondary">
+              A la Romana calculator
+            </h1>
+          </div>
 
-    <div class="container" id="foto"></div>
+          <div class="container border border-3 border-secondary rounded p-3">
+            <form class="row" id="usuarioForm">
+              <div class="col-md-8">
+                <label class="form-label fs-5" for="nombreInput">Nombre:</label>
+                <input
+                  class="form-control border border-3 border-info"
+                  type="text"
+                  id="nombreInput"
+                  required
+                />
+              </div>
 
+              <div class="col-md-4">
+                <label class="form-label fs-5" for="edadInput">Edad:</label>
+                <input
+                  class="form-control border border-3 border-info"
+                  type="number"
+                  id="edadInput"
+                  required
+                />
+              </div>
 
+              <div class="col-md-12">
+                <label class="form-label fs-5" for="inputGroupSelect01"
+                  >Método de pago</label
+                >
+                <select
+                  class="form-select border border-3 border-info"
+                  id="inputGroupSelect01"
+                  required
+                >
+                  <option selected>Seleccionar...</option>
+                  <option value="tarjeta">Tarjeta</option>
+                  <option value="efectivo">Efectivo</option>
+                </select>
+              </div>
+
+              <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary mt-3">
+                  Agregar Usuario
+                </button>
+              </div>
+            </form>
+
+            
+
+            <section>
+              <div class="container mt-5">
+                <ul class="d-flex justify-content-around list-unstyled">
+                  <li>
+                    <button id="btnCena" class="rounded cena bg-primary mt-3 btn-lg text-light">
+                      calcular cena Romana
+                    </button>
+                  </li>
+
+                  <li>
+                    <button
+                      id="btnEquitativa"
+                      class="rounded cena bg-primary mt-3 btn-lg text-light"
+                    >
+                      calcular cena equitativo
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <div
+              id="listUser"
+              class="mt-5 bg-secondary text-center p-1 border-bottom border-3 border-info"
+            >
+              <h5 class="mt-2">Lista de usuarios que participan en la romana:</h5>
+              <p class="fw-bold">
+                Nota: Los usuarios menores de 13 años no son tomados en cuenta
+                para el pago.
+              </p>
+            </div>
+            <div
+              class=" p-2 bg-secondary"
+              id="resumenMetodosPago">
+          </div>
+             
+            </section>
+          </div>
+        </section>
+      </main>
+
+      <div class="container" id="foto"></div>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -158,6 +173,5 @@
     <script src="sweetalert2.all.min.js"></script>
 
     <script src="main.js"></script>
-    
   </body>
 </html>
