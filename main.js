@@ -255,7 +255,7 @@ userList.append(userListContent);
       } 
       // Si no alcanza alert Y vuelvo a preguntar a todos cuanto quieren poner.
       if (montoRonda < costoCena) {
-        alert("No llegamos a cubrir el costo: Vamos de nuevo.");
+        Swal.fire("No llegamos a cubrir el costo: Vamos de nuevo.");
        }
       return montoRonda;
     }
