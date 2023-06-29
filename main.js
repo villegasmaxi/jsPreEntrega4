@@ -2,7 +2,7 @@
 
 
 
-//receta random
+//receta random api
 const imageMars = document.getElementById("foto");
 
 fetch("http://www.themealdb.com/api/json/v1/1/random.php")
@@ -135,7 +135,7 @@ verCarrito.addEventListener("click", pintarCarrito);
 const eliminarProducto = (id) => {
   // Esta funcion devuelve el indice del elemento en el array que coincide con el id proporcionado. (Si el id no existe devuelve -1)
   const findIndex = carrito.findIndex((element) => element.id === Number(id))
-  // Usamos el metodo splice para quitar el elemento del array.
+  // Uso metodo splice para quitar el elemento del array.
   if (findIndex !== -1) {
     carrito.splice(findIndex, 1)
   }
