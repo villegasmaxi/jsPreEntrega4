@@ -5,7 +5,7 @@
 //receta random api
 const imageMars = document.getElementById("foto");
 
-fetch("http://www.themealdb.com/api/json/v1/1/random.php")
+fetch("https://www.themealdb.com/api/json/v1/1/random.php")
 
 .then((respuesta) => respuesta.json())
 .then((data) => {
